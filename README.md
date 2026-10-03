@@ -20,9 +20,9 @@ Partindo com base na troca segura de informação, entre o ponto **A** e o ponto
 1. Ponto **A** e **B** geram suas chaves criptograficas (Privada, Pública).
 2. Ponto **A** e **B** trocam suas chaves Públicas.
 3. Ponto **A** criptografa os dados com a chave Pública de **B**
-  - **B** descriptografa os dados com sua chave Privada.
-5. Ponto **B** criptografa os dados com a chave Pública de **A**
-  - **A** descriptografa os dados com sua chave Privada.
+>**B** descriptografa os dados com sua chave Privada.
+4. Ponto **B** criptografa os dados com a chave Pública de **A**
+>**A** descriptografa os dados com sua chave Privada.
 
 <div align="center">
     <img src="https://dhg1h5j42swfq.cloudfront.net/2022/11/07211315/criptografiaassimetrica.png" width="600" heigth="300">
@@ -38,18 +38,46 @@ O mesmo se aplica da seguinte maneira:
 <br>
 
 ### 1. TESTE BASICO
-Escolhemos um numero aleatório e fazemos divisões simples por valores baixos para já eliminar numeros obvios, como numeros pares ou multiplos de 3 ou 5 por exemplo.
+Escolhemos um numero aleatório e fazemos divisões simples por valores baixos para já eliminar numeros óbvios, como numeros pares ou multiplos de 3 ou 5 por exemplo.
 
 ``` python
-nums_primos = [2, 3, 5]
-
-def teste_basico(n):
-    for p in nums_primos:
-        if p > n//2:
-            break
-
-        if n%p == 0:
-            return True
-        
+for p in lista_nums:
+  if num_aleatorio % p == 0:
     return False
+  return True
 ```
+> Se o resultado da modularização for 0, pode descartar o numero e gerar um novo.
+
+<br>
+
+### 2. DECOMPOSIÇÃO
+Decompomos o numero aleatório de forma a representá-lo na equação $2^s * d = n - 1$ onde $d$ é interio impar e $s$ potência inteira de 2.
+
+```
+n = 67
+
+(2 ^ s) *  d ==  n - 1
+(2 ^ 1) * 33 == 67 - 1
+
+d = 33
+s =  1
+```
+
+<br>
+
+### 3. TESTES SEMI-DEFINITIVO
+Os testes semi definitivos são divididos na verificação da veracidade de duas equações.
+
+***
+
+#### PRIMEIRO TESTE
+Testamos a equação $a^d = ((n - 1) \parallel 1) (mod)$ sendo $a$ um numero aleatório entre **0** e **n-1**
+
+``` python
+a = randint(0, n-2)
+res = pow(a, d, n)
+if (res == 1) or (res == n-1):
+  return True
+```
+> Se o resultado for **1** ou **n-1** ele passou no primeiro teste e não será necessario fazer o segundo teste.
+
