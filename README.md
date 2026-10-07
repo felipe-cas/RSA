@@ -17,7 +17,7 @@ Este é um estudo do funcionamento matemático e lógico da criptografia assimé
 
 Partindo com base na troca segura de informação, entre o ponto **A** e o ponto **B**, temos o seguinte fluxo da criptografia:
 
-1. Ponto **A** e **B** geram suas chaves criptograficas (Privada, Pública).
+1. Ponto **A** e **B** geram suas chaves criptográficas (Privada, Pública).
 2. Ponto **A** e **B** trocam suas chaves Públicas.
 3. Ponto **A** criptografa os dados com a chave Pública de **B**
 >**B** descriptografa os dados com sua chave Privada.
@@ -31,14 +31,14 @@ Partindo com base na troca segura de informação, entre o ponto **A** e o ponto
 
 <h2 align="center">MATEMÁTICA SIMPLIFICADA 🤓</h2>
 
-A matemática por trás da geração das chaves toma como base a multiplicação de dois numeros primos gigantes (é considerado seguro partir com numeros de 2048 bits, equivalente a cerca de 617 digitos).  
-Mas como certificar que os numeros escolhidos são realmente primos? Utilizamos o algoritmo de Miller-Rabin.  
+A matemática por trás da geração das chaves toma como base a multiplicação de dois números primos gigantes (é considerado seguro partir com números de 2048 bits, equivalente a cerca de 617 digitos).  
+Mas como certificar que os números escolhidos são realmente primos? Utilizamos o algoritmo de Miller-Rabin.  
 O mesmo se aplica da seguinte maneira:
 
 <br>
 
-### 1. TESTE BASICO
-Escolhemos um numero aleatório e fazemos divisões simples por valores baixos para já eliminar numeros óbvios, como numeros pares ou multiplos de 3 ou 5 por exemplo.
+### 1. TESTE BÁSICO
+Escolhemos um numero aleatório e fazemos divisões simples por valores baixos para já eliminar numeros óbvios, como numeros pares ou múltiplos de 3 ou 5 por exemplo.
 
 ``` python
 for p in lista_nums:
@@ -65,7 +65,7 @@ s =  1
 
 <br>
 
-### 3. TESTES SEMI-DEFINITIVO
+### 3. TESTES SEMI DEFINITIVO
 Os testes semi definitivos são divididos na verificação da veracidade de duas equações.
 
 ***
@@ -79,5 +79,29 @@ res = pow(a, d, n)
 if (res == 1) or (res == n-1):
   return True
 ```
-> Se o resultado for **1** ou **n-1** ele passou no primeiro teste e não será necessario fazer o segundo teste.
+> Se o resultado for **1** ou **n-1** ele passou no primeiro teste e não será necessário fazer o segundo teste.
 
+#### SEGUNDO TESTE
+Caso de um resultado diferente e não passe no primeiro teste, recorremos a equação $resultado ^ 2 = n - 1 (mod)$. Nesse segundo teste temos um particularidade, repetiremos ele $s - 1$ vezes até uma das seguintes condições se tornem verdadeiras: 
+- $s = 0$
+- $resultado = n -1$
+- $resultado_atual = 1 \land resultado_anterior != n - 1$
+
+> Toda vez que repetimos o teste, usamos o resultado de volta na equação
+
+``` python
+for _ in range(0, s-1):
+  new = pow(res, 2, n)
+
+  if (new == 1) and (res != (n - 1))
+    return False
+
+  elif new == (n - 1):
+    return True
+
+  res = new
+
+return False
+```
+
+> Caso ele não caia em nenhuma da condições
