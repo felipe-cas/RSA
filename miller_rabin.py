@@ -142,13 +142,14 @@ def miller_rabin(n, z):
 
                 elif (new == (n-1)):
                     # Passou
-                    continue
+                    break
 
                 res = new
 
             # s == 0 
             # Não Passou
-            return False
+            else:
+                return False
 
     # Passou todos os loops
     # Passou

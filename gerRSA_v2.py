@@ -100,9 +100,6 @@ class gerRsa:
                     if (num-1) % 65537 != 0:
                         self.lista_pq.append(num)
 
-        #chaveRSA = self.getRsa(self.lista_pq[0], self.lista_pq[1])
-        #print(chaveRSA)
-
 
     def getSecret(self, tam):
         num = secrets.randbits(tam)
@@ -144,14 +141,14 @@ class gerRsa:
 
                     elif (new == (num-1)):
                         # Passou
-                        #return True
-                        continue
+                        break
 
                     res = new
 
                 # s == 0
                 # Não Passou
-                return False
+                else:
+                    return False
 
         # Passou em todos
         return True
