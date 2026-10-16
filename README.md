@@ -85,7 +85,7 @@ if (res == 1) or (res == n-1):
 Caso de um resultado diferente e não passe no primeiro teste, recorremos a equação $resultado ^ 2 = n - 1 (mod)$. Nesse segundo teste temos um particularidade, repetiremos ele $s - 1$ vezes até uma das seguintes condições se tornem verdadeiras: 
 - $s = 0$
 - $resultado = n -1$
-- $resultado_atual = 1 \land resultado_anterior != n - 1$
+- $resultadoAtual = 1 \land resultadoAnterior != n - 1$
 
 > Toda vez que repetimos o teste, usamos o resultado de volta na equação
 
@@ -97,11 +97,12 @@ for _ in range(0, s-1):
     return False
 
   elif new == (n - 1):
-    return True
+    break
 
   res = new
 
-return False
+else:
+  return False
 ```
 
 > Caso ele não caia em nenhuma da condições
