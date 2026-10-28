@@ -82,7 +82,7 @@ if (res == 1) or (res == n-1):
 > Se o resultado for **1** ou **n-1** ele passou no primeiro teste e não será necessário fazer o segundo teste.
 
 #### SEGUNDO TESTE
-Caso de um resultado diferente e não passe no primeiro teste, recorremos a equação $resultado ^ 2 = n - 1 (mod)$. Nesse segundo teste temos um particularidade, repetiremos ele $s - 1$ vezes até uma das seguintes condições se tornem verdadeiras: 
+Caso de um resultado diferente e não passe no primeiro teste, recorremos a equação $resultado ^ 2 = n - 1 (mod)$. Nesse segundo teste temos uma particularidade, repetiremos ele $s - 1$ vezes até uma das seguintes condições se tornem verdadeiras: 
 - $s = 0$
 - $resultado = n -1$
 - $resultadoAtual = 1 \land resultadoAnterior != n - 1$
@@ -105,4 +105,11 @@ else:
   return False
 ```
 
-> Caso ele não caia em nenhuma da condições
+> Caso ele não caia em nenhuma da condições acima, o numero não é primo
+
+
+**ATENÇÃO**: O teste de Miller-Rabin é considerado um teste Semi-Probabilístico (assim é como gosto de chamar, mas o termo técnico correto seria Algoritmo de Monte-Carlo). É um texto com tempo limite de execução determinístico, porem o resultado com uma margem de erro probabilística.  
+Um segundo ponto a se considerar é seu resultado probabilístico, quando o algoritmo disser que o numero não é primo, a resposta é 100% determinístico e sem margens de erro, porem quando acusar que o resultado é primo, terá uma pequena margem de erro, sendo então considerado um provável primo. Para diminuirmos a margem de erro, podemos repetir o algoritmo k vezes para o mesmo numero. Essa foi a sacada genial de Michael O. Rabin.
+
+<h2 align="center">🔑 GERANDO AS CHAVES 😎</h2>
+
