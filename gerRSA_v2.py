@@ -97,6 +97,7 @@ class gerRsa:
                 
                 if self.testeMillerRabin(num, 1):
 
+                    # Teste de Euclides
                     if (num-1) % 65537 != 0:
                         self.lista_pq.append(num)
 
@@ -164,22 +165,6 @@ class gerRsa:
             s +=  1
 
         return (d, s)
-
-
-    def testeEuclides(self, phi):
-        e = 65537
-        num = phi
-
-        while e != 1:
-            try:
-                res = num % e
-                num = e
-                e 	= res
-
-            except ZeroDivisionError:
-                return False			
-
-        return True
 
 
     def getRsa(self):
