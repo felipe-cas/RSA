@@ -1,4 +1,4 @@
-from gerRSA_v3 import gerRsa
+from gerRSA_v2 import gerRsa
 
 
 def strToAscii(text):
