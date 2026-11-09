@@ -113,3 +113,57 @@ Um segundo ponto a se considerar é seu resultado probabilístico, quando o algo
 
 <h2 align="center">🔑 GERANDO AS CHAVES 😎</h2>
 
+Finalmente é chegada é hora de gerar as chaves! É sempre bom lembrar que a criptografia RSA é assimétrica, isso significa que possui duas chaves diferentes, uma pública usada para criptografar e uma privada para descriptografar.
+
+<br>
+
+Para gerar ambas as chaves, devemos escolher dois numeros primos grandes (2048 bits) e multiplicarmos um pelo outro, gerando o numero $n$, usaremos os numeros $p = 17$ e $q = 41$ para simplificar nosso exemplo:
+
+```python
+p = 17
+q = 41
+
+n = p * q  #17 * 41 = 697
+```
+> Esse valor $n$ será usado em ambas as chaves
+
+<br>
+
+Logo após, definimos a Função Totiente de Euller, também conhecida como $\phi$ (phi), para o valor de N. Sua formula se descreve da seguinte maneira: $\phi = (p - 1) * (q - 1)$
+
+```python
+phi = (p-1) * (q-1)  #(17-1) * (41-1) = 16 * 40 = 640
+```
+
+<br>
+
+### Chave Pública
+
+Para criar a chave pública, devemos escolher um valor para E, que atenda as seguintes condições:
+
+- E > 1
+- E < phi(n)
+- E coprimo de phi(n)
+
+> Nesse exemplo, escolhi o numero 13, sendo $mdc(640, 13) == 1$
+
+Nessa etapa, nossa chave pública já esta pronta, sendo o conjunto N e E
+
+```python
+n = 697
+e = 13
+chavePublica = [n, e]
+```
+
+<br>
+
+### Chave Privada
+
+Para criar a chave privada, usaremos o valor de phi e E, definidos anteriormente, para gerar o valor D, segundo a condição: $(d * e) mod \phi == 1$  
+Dessa forma, nossa chave privada também ja esta pronta, sendo o conjunto N e D
+
+```python
+n = 697
+d = pow(e, -1, phi)  # pow(13, -1, 640) = 197
+chavePrivada = [n, d]
+```
