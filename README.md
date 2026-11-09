@@ -167,3 +167,41 @@ n = 697
 d = pow(e, -1, phi)  # pow(13, -1, 640) = 197
 chavePrivada = [n, d]
 ```
+<br>
+
+<h2 align="center">🔒 Processo de Criptografia e Descriptografia 🔑</h2>
+
+O processo de criptografia e descriptografia são relativamente simples de se aplicar, usaremos a função inverso modular em cada caractere ascii da mensagem, usando a chave pública para criptografar e a privada para descriptografar.
+
+### Criptografando mensagem
+
+```python
+n = 697
+e = 13
+chavePublica = [n, e]
+
+# 111 == 'o'; 105 =='i'
+msg = [111, 105]
+
+# Para cada caractere ascii da mensagem, elevamos em E, e aplicamos o modulo de N
+msgCriptografada = [pow(c, chavePublica[1], chavePublica[0]) for c in msg]
+
+# msgCriptografada == [110, 318]
+```
+
+<br>
+
+### Descriptografando mensagem
+
+```python
+n = 697
+d = 197
+chavePrivada = [n, d]
+
+# msgCriptografada == [110, 318]
+
+# Para cada caractere da mensagem criptografada, elevamos em D, e aplicamos o modulo de N
+msgDescriptografada = [pow(c, chavePrivada[1], chavePrivada[0]) for c in msgCriptografada]
+
+# msgDescriptografada == [111, 105]
+```
