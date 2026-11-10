@@ -205,3 +205,20 @@ msgDescriptografada = [pow(c, chavePrivada[1], chavePrivada[0]) for c in msgCrip
 
 # msgDescriptografada == [111, 105]
 ```
+
+<br>
+
+<h2 align="center">📚 Principais Usos 🌐</h2>
+
+Esse projeto trata apenas a matematica basica da criptografia RSA. Atualmente foram implementadas diversas técnicas e avanços com o intuito de tornar a criptgrafia mais rápida, viável e segura.  
+
+<br>
+<h3>PRINCIPAIS IMPLEMENTAÇÕES</h3>
+
+|       Aplicação      |                    Descrição                    |
+|:---------------------|:------------------------------------------------|
+| Certificados SSL/TLS | Autenticação e troca de chaves simétricas       |
+| Assinaturas Digitais | Verifica Autenticidade e a Integridade de dados |
+| SSH                  | Autenticação de Servidores e Usuarios           |
+| VPN                  | Autenticação e Troca de chaves                  |
+| Blockchains          | Assinatura de transações                        |
