@@ -254,3 +254,19 @@ Apesar de ser computacionalmente inviavel tentar quebrar uma chave RSA com a tec
 | AES           | Alta segurança, mais rápido | Manuseio de chaves complexa(Simétrica)   |
 
 > O recomendado é interpolar os algoritimos, por exemplo, RSA para troca de chaves e AES para envio de conteudo
+
+<br>
+<h2 align="center">Referências 📚</h2>
+<br>
+
+- [Biblia do Pentest](https://github.com/morteerror404/BibliaDoPentestBR) - ```https://github.com/morteerror404/BibliaDoPentestBR```
+
+- [Calculadora Miller-Rabin](https://pt.planetcalc.com/8995/) - ```https://pt.planetcalc.com/8995/```
+
+- [The RSA Cryptosystem](https://cryptobook.nakov.com/asymmetric-key-ciphers/the-rsa-cryptosystem-concepts) - ```https://cryptobook.nakov.com/asymmetric-key-ciphers/the-rsa-cryptosystem-concepts```
+
+- [Criptografia Assimétrica RSA](https://medium.com/@tarcisioma/algoritmo-de-criptografia-assim%C3%A9trica-rsa-c6254a3c7042) - ```https://medium.com/@tarcisioma/algoritmo-de-criptografia-assim%C3%A9trica-rsa-c6254a3c7042```
+
+- [Introdução à criptografia RSA](https://www.youtube.com/watch?v=rvdI-uhvQgc) - ```https://www.youtube.com/watch?v=rvdI-uhvQgc```
+
+- E muita I.A
