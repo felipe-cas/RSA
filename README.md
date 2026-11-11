@@ -108,8 +108,8 @@ else:
 > Caso ele não caia em nenhuma da condições acima, o numero não é primo
 
 
-**ATENÇÃO**: O teste de Miller-Rabin é considerado um teste Semi-Probabilístico (assim é como gosto de chamar, mas o termo técnico correto seria Algoritmo de Monte-Carlo). É um texto com tempo limite de execução determinístico, porem o resultado com uma margem de erro probabilística.  
-Um segundo ponto a se considerar é seu resultado probabilístico, quando o algoritmo disser que o numero não é primo, a resposta é 100% determinístico e sem margens de erro, porem quando acusar que o resultado é primo, terá uma pequena margem de erro, sendo então considerado um provável primo. Para diminuirmos a margem de erro, podemos repetir o algoritmo k vezes para o mesmo numero. Essa foi a sacada genial de Michael O. Rabin.
+**ATENÇÃO**: O teste de Miller-Rabin é considerado um teste Semi-Probabilístico (assim é como gosto de chamar, mas o termo técnico correto seria Algoritmo de Monte-Carlo). É um algoritmo com tempo limite de execução determinístico, porem o resultado com uma margem de erro probabilística.  
+Um segundo ponto a se considerar é seu resultado probabilístico, quando o algoritmo disser que o numero não é primo, a resposta é 100% determinística e sem margens de erro, porem quando acusar que o resultado é primo, terá uma pequena margem de erro, sendo então considerado um provável primo. Para diminuirmos a margem de erro, podemos repetir o algoritmo k vezes para o mesmo numero. Essa foi a sacada genial de Michael O. Rabin.
 
 <h2 align="center">🔑 GERANDO AS CHAVES 😎</h2>
 
@@ -247,13 +247,13 @@ Apesar de ser computacionalmente inviavel tentar quebrar uma chave RSA com a tec
 
 ### **ALTERNATIVAS AO RSA**
 
-| Algoritimo    | Vantagens                   | Desvantagens                             |
+| Algoritmo    | Vantagens                   | Desvantagens                             |
 |:--------------|:----------------------------|:-----------------------------------------|
 | RSA           | Amplamente Suportado        | Chaves grandes, Computacionalmente lento |
 | ECC           | Chaves menores, mais rápido | Pouco Auditado                           |
 | AES           | Alta segurança, mais rápido | Manuseio de chaves complexa(Simétrica)   |
 
-> O recomendado é interpolar os algoritimos, por exemplo, RSA para troca de chaves e AES para envio de conteudo
+> O recomendado é interpolar os algoritmos, por exemplo, RSA para troca de chaves e AES para envio de conteudo
 
 <br>
 <h2 align="center">Referências 📚</h2>
