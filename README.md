@@ -213,7 +213,8 @@ msgDescriptografada = [pow(c, chavePrivada[1], chavePrivada[0]) for c in msgCrip
 Esse projeto trata apenas a matematica basica da criptografia RSA. Atualmente foram implementadas diversas técnicas e avanços com o intuito de tornar a criptgrafia mais rápida, viável e segura.  
 
 <br>
-<h3>PRINCIPAIS IMPLEMENTAÇÕES</h3>
+
+### **PRINCIPAIS IMPLEMENTAÇÕES**
 
 |       Aplicação      |                    Descrição                    |
 |:---------------------|:------------------------------------------------|
@@ -222,3 +223,22 @@ Esse projeto trata apenas a matematica basica da criptografia RSA. Atualmente fo
 | SSH                  | Autenticação de Servidores e Usuarios           |
 | VPN                  | Autenticação e Troca de chaves                  |
 | Blockchains          | Assinatura de transações                        |
+
+
+<br>
+
+### **Implementação Segura**
+
+Apesar de ser computacionalmente inviavel tentar quebrar uma chave RSA com a tecnologia que temos hoje ou algum dia teremos, é de extrema importância que sua implementação seja seguramente bem feita, assim, evitando ataques matematicos e de padding!  
+> Recomenda-se seguir as normas da NIST SP 800-57 para gerenciamento de chaves criptograficas.
+
+<br>
+
+#### **BOAS PRATICAS**
+
+- Tamanho minimo da chave de 2048 bits
+- Utilizar padding OAEP (Evite PKCS#1 v1.5)
+- Utilizar E com o valor padrão 65537 (Já testado e consagrado)
+- Não utilizar RSA para grande volume de dados (lento)
+- Utilizar geradores pseudo-aleatórios seguros para P e Q (Não use os de propósito geral)
+- NUNCA EXPONHA A CHAVE PRIVADA
